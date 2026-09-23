@@ -221,10 +221,12 @@
 
   <div class="divider"></div>
 
-  <form id="notify-form" action="https://formspree.io/f/xeaokzpg" method="POST">
-    <input type="email" id="email" placeholder="you@email.com" required autocomplete="email">
-    <button type="submit">Notify me</button>
-  </form>
+<form id="notify-form" action="https://formspree.io/f/xeao" method="POST">
+  <!-- Added name="email" below -->
+  <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
+  <button type="submit">Notify me</button>
+</form>
+
   <p class="note" id="note"></p>
 </main>
 
