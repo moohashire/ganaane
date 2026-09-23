@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ganaane — Coming Soon</title>
-<meta name="description" content="Ganaane is on its way. Small roots, big systems. Sign up to be the first to know when we launch.">
+<meta name="description" content="Ganaane is on its way. Small roots, big systems.">
 <link rel="canonical" href="https://ganaane.com/">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0F1310">
@@ -117,62 +117,37 @@
     width: 1px;
     height: 48px;
     background: linear-gradient(var(--line), transparent);
-    margin: 3rem 0 2.4rem;
+    margin: 3rem 0 2.6rem;
   }
 
-  form{
+  .progress{
     display: flex;
-    width: 100%;
-    max-width: 420px;
-    border: 1px solid var(--line);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .progress-track{
+    width: 220px;
+    height: 3px;
     border-radius: 999px;
-    background: var(--panel);
-    padding: 5px;
-    transition: border-color 0.25s ease;
+    background: var(--line);
+    overflow: hidden;
   }
 
-  form:focus-within{
-    border-color: var(--green);
+  .progress-fill{
+    height: 100%;
+    width: 42%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--green), var(--gold));
   }
 
-  input[type="email"]{
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 0.92rem;
-    padding: 0.7rem 1.1rem;
-  }
-
-  input[type="email"]::placeholder{
-    color: var(--muted);
-  }
-
-  button{
+  .progress-label{
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    background: var(--green);
-    color: #0F1310;
-    border: none;
-    border-radius: 999px;
-    padding: 0 1.4rem;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-    white-space: nowrap;
-  }
-
-  button:hover{ background: var(--gold); transform: translateY(-1px); }
-  button:active{ transform: translateY(0); }
-
-  .note{
-    margin-top: 1rem;
-    font-size: 0.78rem;
     color: var(--muted);
-    min-height: 1.2em;
   }
 
   footer{
@@ -221,13 +196,12 @@
 
   <div class="divider"></div>
 
-<form id="notify-form" action="https://formspree.io/f/xeaokzpg" method="POST">
-  <!-- Added name="email" below -->
-  <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email">
-  <button type="submit">Notify me</button>
-</form>
-
-  <p class="note" id="note"></p>
+  <div class="progress">
+    <div class="progress-track">
+      <div class="progress-fill"></div>
+    </div>
+    <span class="progress-label">Building in progress</span>
+  </div>
 </main>
 
 <footer style="display: flex; justify-content: center; align-items: center; text-align: center;">
@@ -236,19 +210,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Email capture — static site, so we just confirm locally.
-  // Swap this handler for a real endpoint (Formspree, Mailchimp, etc.) when ready.
-  const form = document.getElementById('notify-form');
-  const note = document.getElementById('note');
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const email = document.getElementById('email').value.trim();
-    if(email){
-      note.textContent = "You're on the list. We'll be in touch.";
-      form.reset();
-    }
-  });
 
   // Organic "growth" network — branches sprout outward from a root point
   // and settle into a quiet constellation. Respects reduced-motion.
